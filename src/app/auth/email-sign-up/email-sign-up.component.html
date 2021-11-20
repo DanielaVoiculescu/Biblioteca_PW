@@ -1,0 +1,143 @@
+<div class="row">
+  <div class="col-xs-12 col-md-4 col-md-offset-4">
+    <form #f="ngForm" (ngSubmit)="onSignUp(f)" >
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="p-field p-grid">
+            <label for="lastname" class="p-col-fixed" style="width:100px;">Nume:</label>
+            <div class="p-col-fixed">
+              <input
+                style="width:148px"
+                pInputText
+                type = "text"
+                id = "lastname"
+                name= "lastname"
+                ngModel
+                required
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="p-field p-grid">
+            <label for="displayName" class="p-col-fixed" style="width:100px;">Prenume:</label>
+            <div class="p-col-fixed">
+              <input
+                style="width:148px"
+                pInputText
+                type = "text"
+                id = "displayName"
+                name= "displayName"
+                ngModel
+                required
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="p-field p-grid">
+            <label for="address" class="p-col-fixed" style="width:100px;">Adresa:</label>
+            <div class="p-col-fixed">
+              <input
+                style="width:148px"
+                pInputText
+                type = "text"
+                id = "address"
+                name= "address"
+                ngModel
+                required
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="p-field p-grid">
+            <label for="phoneNumber" class="p-col-fixed" style="width:100px;">Numar telefon:</label>
+            <div class="p-col-fixed">
+              <input
+                style="width:148px"
+                pInputText
+                type = "text"
+                id = "phoneNumber"
+                name= "phoneNumber"
+                ngModel
+                required
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="p-field p-grid">
+            <label
+              for="email"
+              class="p-col-fixed"
+              style="width:100px;">E-Mail: </label>
+            <div class="p-col-fixed">
+              <input
+                style="width: 148px;"
+                pInputText
+                type="email"
+                id="email"
+                ngModel
+                name="email"
+                required
+                email>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="p-field p-grid">
+            <label for="password" class="p-col-fixed" style="width:100px;">Password: </label>
+            <div class="p-col-fixed">
+              <p-password
+                [toggleMask]="true"
+                id="password"
+                ngModel
+                name="password"
+                required
+                minlength="6"
+              ></p-password>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin: 15px" *ngIf="!showUploader">
+        <h5 style="text-align: center">(Optional) Click on the photo to select a profile picture</h5>
+        <img
+          [src]="photoURL"
+          class="img-responsive center-block"
+          style="height: 200px;width: auto; cursor: pointer"
+          alt="user"
+          (click)="onHandleUploader()">
+      </div>
+      <div style="margin: 15px" *ngIf="showUploader">
+        <p-fileUpload
+          [auto]="true"
+          accept="image/*"
+          [maxFileSize]="1000000"
+          [customUpload]="true"
+          (uploadHandler)="onUpload($event)"
+        >
+        </p-fileUpload>
+      </div>
+      <div class="row" style="text-align: center">
+        <div style="margin-bottom: 5px">
+          <button
+            pButton
+            class="p-button-rounded"
+            type="submit"
+            [disabled]="!f.valid"
+            label="SignUp">
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

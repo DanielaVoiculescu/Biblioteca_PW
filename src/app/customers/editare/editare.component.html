@@ -1,0 +1,82 @@
+<div class="backdrop"></div>
+<div class="edit-box" *ngIf="user && customer">
+  <div class="row" >
+    <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="onClose()"></button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="center-block">
+    <div class="form-group">
+      <div *ngIf="photoURL !== '' &&! showUploader" style="text-align: center; margin-bottom: 10px;">
+        <button
+          type="button"
+          pButton
+          pRipple
+          class="p-button-raised p-button-info pull-right"
+          icon="pi pi-pencil"
+          label=""
+          style="position: absolute"
+          (click)="onHandleUploader()"></button>
+        <img
+          [src]="customer.photoURL"
+          class="img-rounded"
+          style="max-width: 100%;max-height: 250px; cursor: pointer"
+          [alt]="customer.displayName"
+          (click)="onHandleUploader()">
+      </div>
+      <div *ngIf="showUploader" style="margin-bottom: 10px">
+        <p-fileUpload
+          [auto]="true"
+          accept="image/*"
+          [maxFileSize]="1000000"
+          [customUpload]="true"
+          (uploadHandler)="onUpload($event)"
+        >
+        </p-fileUpload>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label for="displayName">Prenume</label>
+      <input id="displayName" type="text" pInputText
+             [(ngModel)]= customer.displayName
+             [ngModelOptions]="{standalone: true}"
+             style="font-size: 13px;">
+    </div>
+    <div class="form-group">
+      <label for="lastname" style="text-align: right">Nume</label>
+      <input
+        id="lastname"
+        type="text"
+        pInputText
+        [(ngModel)]= customer.lastname
+        [ngModelOptions]="{standalone: true}"
+        style="font-size: 13px;"
+      >
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Numar telefon</label>
+      <input
+        id="phoneNumber"
+        type="text"
+        pInputText
+        [(ngModel)]=customer.phoneNumber
+        [ngModelOptions]="{standalone: true}"
+        style="font-size: 13px;"
+      >
+    </div>
+    <div class="form-group">
+      <label for="address">Adresa</label>
+      <input id="address" type="text" [(ngModel)]=customer.address  [ngModelOptions]="{standalone: true}">
+    </div>
+
+    <div style="text-align: center;">
+      <button
+
+        type="submit"
+        pButton
+        class="p-button-rounded p-button-success"
+        label="Save"
+        style="font-size: 13px; width: 80px; margin-top: 5px"
+        [disabled]="!f.valid"
+      ></button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+.block{
+  border-style: ridge;
+  height: 400px;
+  width: 600px;
+}
+.description{
+  text-align: center;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.edit-box {
+  position: fixed;
+  top: 5vh;
+  left: 20vw;
+  width: 60vw;
+  height: 90vh;
+  padding: 60px;
+  background: white;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand"><i class="pi pi-book"style="font-size: 2rem"></i>Biblioteca Judeteana Gorj</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a routerLink="/" >Home</a> </li>
+        <li ><a routerLink="/carti"  >Biblioteca</a> </li>
+        <li><a routerLink="/istoric" >Istoric</a> </li>
+        <li ><a routerLink="/imprumuturi" *ngIf="user && user.roles.admin" >Istoric imprumuturi</a> </li>
+        <li ><a routerLink="/adaugarecarte" *ngIf="user && user.roles.admin" >Carte noua</a> </li>
+        <li ><a routerLink="/adaugareimprumut" *ngIf="user && user.roles.admin" >Adauga imprumut</a> </li>
+
+        <li ><a routerLink="/imprumuturiutilizator" *ngIf="user && user.roles.customer" >Lista carti imprumutate</a> </li>
+        <li ><a routerLink="/bibliotecari" *ngIf="user &&! user.roles.admin && user.roles.customer" >Bibliotecari</a> </li>
+
+        <li ><a routerLink="/customers" *ngIf="user && user.roles.admin" >Abonati</a> </li>
+
+        <!--        <li><a routerLink="register" >Creeare cont</a> </li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a routerLink="/auth" *ngIf="!user" >Logare</a> </li>
+        <li class="dropdown" appDropdown *ngIf="user">
+          <a class="dropdown-toggle" role="button">
+            <img
+              [src]="user.photoURL? user.photoURL : 'https://thumbs.dreamstime.com/b/user-icon-person-profile-sign-vector-avatar-user-icon-person-profile-sign-vector-avatar-illustration-124240309.jpg'"
+              alt="user"
+              width="27"
+              height="27"
+              class="img-circle">
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+            <li  routerLinkActive="active">
+              <a style="cursor: pointer" routerLink="/profile">
+                <p class="manage">Profil</p>
+              </a>
+            </li>
+            <li><a style="cursor: pointer" routerLink="/home-page"><p class="logout" (click)="onLogout()">Log out</p></a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

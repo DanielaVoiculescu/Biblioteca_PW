@@ -1,0 +1,44 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.details-box {
+  position: fixed;
+  top: 5vh;
+  left: 20vw;
+  width: 60vw;
+  height: 90vh;
+  padding: 60px;
+  background: white;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.details-box-actions {
+  text-align: center;
+}
+
+.nume{
+  font-size: 21px;
+  font-weight: bold;
+}
+.intro {
+  font-size: 17px;
+  color: #151515;
+}
+.about{
+  font-size: 14px;
+}
+
+@media screen and (max-width: 564px) {
+  .details-box{
+    width: 100vw;
+    left: 0;
+  }
+}

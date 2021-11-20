@@ -1,0 +1,41 @@
+<p-table [value]="customers">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nume</th>
+      <th>Prenume</th>
+      <th>Adresa</th>
+      <th>Telefon</th>
+      <th>Adresa email</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr *ngIf="customer.roles.customer">
+      <td>{{customer.lastname}}</td>
+      <td>{{customer.displayName}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.phoneNumber}}</td>
+      <td>{{customer.email}}</td>
+      <td><button pButton
+        icon="pi pi-pencil"
+        class="p-button-info p-button-rounded pull-right"
+        label="Edit" (click)="onHandleEditCustomer(customer)">
+      </button>
+      </td>
+      <td><button
+        style="font-size: 13px; width: 80px"
+        pButton
+        class="p-button-danger p-button-rounded"
+        icon="pi pi-trash"
+        label="Delete"
+        (click)="deleteCustomer(customer)"
+      ></button></td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<button class="p-button-rounded" (click)="AdaugaAbonat()">Adaugare abonat</button>
+<app-adaugare *ngIf="adaugaAbonat"></app-adaugare>
+<app-editare *ngIf="showAddPet && customer" [customer]="customer" (closeBookEdit)="onHandleEditCustomer(customer)"></app-editare>
+

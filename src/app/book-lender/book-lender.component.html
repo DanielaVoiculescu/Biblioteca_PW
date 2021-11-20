@@ -1,0 +1,68 @@
+<div class="backdrop"></div>
+<div class="edit-box">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="row" >
+      <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="onClose()"></button>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="readerName" >Nume</label>
+      <input type="text" class="form-control" id="readerName" placeholder="Numele cititorului" [(ngModel)]=lender.readerName [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="bookName">Carte</label>
+        <input type="text" class="form-control" id="bookName" placeholder="Numele cartii" [(ngModel)]=lender.bookName [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="bookCode">Cod</label>
+        <input type="text" class="form-control" id="bookCode" placeholder="Codul cartii" [(ngModel)]=lender.bookCode [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="bookAuthor">Numele autorului</label>
+        <input type="text" class="form-control" id="bookAuthor" placeholder="Numele autorului" [(ngModel)]=lender.bookAuthor [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <div class="form-group">
+      <span>
+        <p-calendar
+          [(ngModel)]="bookLenderDate"
+          [ngModelOptions]="{standalone: true}"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2000:{{yearRange}}"
+          dateFormat="dd.mm.yy"
+          id="navigators"
+          placeholder="Selecteaza data imprumutului"
+        ></p-calendar>
+      </span>
+    </div>
+    <div class="form-group">
+      <span>
+        <p-calendar
+          [(ngModel)]="bookReturnDate"
+          [ngModelOptions]="{standalone: true}"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="2000:{{yearRange}}"
+          dateFormat="dd.mm.yy"
+          id="navigators"
+          placeholder="Selecteaza data restituirii"
+        ></p-calendar>
+      </span>
+    </div>
+    <div style="text-align: center;">
+      <button
+        type="submit"
+        pButton
+        class="p-button-rounded p-button-success"
+        label="Save"
+        style="font-size: 13px; width: 80px; margin-top: 5px"
+        [disabled]="!f.valid"
+      ></button>
+    </div>
+  </form>
+
+</div>
+
+

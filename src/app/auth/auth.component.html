@@ -1,0 +1,27 @@
+<div class="row" >
+  <div class="col-md-12 ">
+    <div style="height: 50px">
+      <p-messages [(value)]="msg"></p-messages>
+    </div>
+    <div *ngIf="!isLoginMode">
+      <app-email-sign-up></app-email-sign-up>
+    </div>
+    <div *ngIf="isLoginMode">
+      <app-email-log-in></app-email-log-in>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12" style="text-align: center">
+        <button
+          (click)="onChangingMode()"
+          style="font-size: 13px"
+          pButton
+          type="button"
+          label="{{isLoginMode? 'Don\'t have an account?' : 'Already have an account?' }}"
+          class="p-button-link"
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div *ngIf="showEditBookMode" style="display: inline-block">
+  <app-book-edit
+    [book]="book"
+    [editMode]="true"
+    (closeBookEdit)="onHandleEditBookMode()"
+  ></app-book-edit>
+</div>
+<div class="block center-block">
+  <div class="row">
+    <div class="col-lg-6"><img
+      [src]="book.photoURL"
+      alt="{{ book.name }}"
+      class="img-responsive center-block"
+      style="max-height: 150px; width: auto;"></div>
+    <div class="col-lg-6">
+      <p>Nume: {{book.name}}</p>
+      <p>Autor: {{book.author}}</p>
+      <p>Anul aparitiei: {{book.year}}</p>
+      <p>Id-ul cartii: {{book.id}}</p>
+      <p *ngIf="book.lender" style="color: red">Indisponibila</p>
+      <p *ngIf="!book.lender" style="color: green">Disponibila</p>
+    </div>
+
+  </div>
+  <div class="row center-block description">
+    <div class="col-sm-12 description">
+      <h5>{{book.description}}</h5>
+    </div>
+
+  </div>
+  <div class="row" *ngIf="user && user.roles.admin">
+    <div class="col-lg-6">
+      <button
+        style="font-size: 13px; width: 80px"
+        pButton
+        class="p-button-danger p-button-rounded"
+        icon="pi pi-trash"
+        label="Delete"
+        (click)="onDelete()"
+      ></button>
+    </div>
+    <div class="col-lg-6">
+      <button
+        style="font-size: 13px; width: 80px;"
+        pButton
+        icon="pi pi-pencil"
+        class="p-button-info p-button-rounded pull-right"
+        label="Edit"
+        (click)="onHandleEditBookMode()"
+      ></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<h2>Imprumuturi anterioare</h2>
+<p-table [value]="LenderList">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cod</th>
+      <th>Posesor</th>
+      <th>Titlu</th>
+      <th>Autor</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr *ngIf="customer.returned==true">
+      <td>{{customer.bookCode}}</td>
+      <td>{{customer.readerName}}</td>
+      <td>{{customer.bookName}}</td>
+      <td>{{customer.bookAuthor}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+<h2>Imprumuturi actuale</h2>
+<p-table [value]="LenderList">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cod</th>
+      <th>Posesor</th>
+      <th>Titlu</th>
+      <th>Autor</th>
+      <th>Returneaza</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr *ngIf="customer.returned==false">
+      <td>{{customer.bookCode}}</td>
+      <td>{{customer.readerName}}</td>
+      <td>{{customer.bookName}}</td>
+      <td>{{customer.bookAuthor}}</td>
+      <!--      <td>{{customer.email}}</td>-->
+      <td  ><button (click)="onSubmit(customer)">Returneaza</button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,33 @@
+<div class="container" *ngIf="user">
+  <div class="row center-block">
+    <div class="col-lg-6">
+      <img  [src]="user.photoURL? user.photoURL : 'https://thumbs.dreamstime.com/b/user-icon-person-profile-sign-vector-avatar-user-icon-person-profile-sign-vector-avatar-illustration-124240309.jpg'"
+            class="img-rounded left"
+            width="400"
+            height="400"
+      >
+    </div>
+    <div class="col-lg-6 about">
+      <p><i class="pi pi-user" style="font-size: 2rem"></i><b>Nume</b>: {{user.lastname}}</p>
+      <p><i class="pi pi-user" style="font-size: 2rem"></i><b>Prenume</b>: {{user.displayName}}</p>
+      <p><i class="pi pi-phone" style="font-size: 2rem"></i>{{user.phoneNumber}}</p>
+      <p><i class="pi pi-map-marker" style="font-size: 2rem"></i>{{user.address}}</p>
+      <p><i class="pi pi-envelope" style="font-size: 2rem"></i>{{user.email}}</p>
+      <button
+        pButton
+        pRipple
+        icon="pi pi-pencil"
+        type="button"
+        label="Edit"
+        style="font-size: 13px; width: 80px; margin-right: 5px"
+        class="p-button-rounded p-button-info"
+        (click)="onHandleEditUser()"
+      ></button>
+    </div>
+  </div>
+  <br>
+</div>
+<app-edit-profile
+*ngIf="showAddPet"
+(closeBookEdit)="onHandleEditUser()">
+</app-edit-profile>

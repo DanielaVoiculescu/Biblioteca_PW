@@ -1,0 +1,42 @@
+<h3>Imprumuturi anterioare</h3>
+<p-table [value]="LenderList">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cod</th>
+      <th>Carte</th>
+      <th>Autor</th>
+      <th>Data imprumutului</th>
+      <th>Data restituirii</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr *ngIf="user && customer.readerName==user.lastname+' '+user.displayName && customer.returned==true">
+      <td>{{customer.bookCode}}</td>
+      <td>{{customer.bookName}}</td>
+      <td>{{customer.bookAuthor}}</td>
+      <td>{{customer.lenderDate.toDate().toDateString()}}</td>
+      <td>{{customer.returnDate.toDate().toDateString()}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+<h3>Imprumuturi actuale</h3>
+<p-table [value]="LenderList">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Cod</th>
+      <th>Carte</th>
+      <th>Autor</th>
+      <th>Data imprumutului</th>
+      <th>Data restituirii</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-customer>
+    <tr *ngIf="user && customer.readerName==user.lastname+' '+user.displayName && customer.returned==false">
+      <td>{{customer.bookCode}}</td>
+      <td>{{customer.bookName}}</td>
+      <td>{{customer.bookAuthor}}</td>
+      <td>{{customer.lenderDate.toDate().toDateString()}}</td>
+      <td>{{customer.returnDate.toDate().toDateString()}}</td>
+    </tr>
+  </ng-template>
+</p-table>
