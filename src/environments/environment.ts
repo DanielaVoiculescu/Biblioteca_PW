@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyB4ZhbFtVLdrU46foArSf9musQclm1p1TM",
-    authDomain: "biblioteca-judeteana-43825.firebaseapp.com",
-    databaseURL: "https://biblioteca-judeteana-43825-default-rtdb.firebaseio.com",
-    projectId: "biblioteca-judeteana-43825",
-    storageBucket: "biblioteca-judeteana-43825.appspot.com",
-    messagingSenderId: "750703805766",
-    appId: "1:750703805766:web:7c86dcb2c6297545f19147",
-    measurementId: "G-S01HFS9PG9"
+    apiKey: "AIzaSyAyNScaBUtvJCPoVp7w9sbYvPsf9Gm0kE0",
+    authDomain: "biblioteca-c6e4f.firebaseapp.com",
+    projectId: "biblioteca-c6e4f",
+    storageBucket: "biblioteca-c6e4f.appspot.com",
+    messagingSenderId: "657857284581",
+    appId: "1:657857284581:web:6aad9ec6ad8d5e2b55470c",
+    measurementId: "G-DEL7FGJ92T"
   }
 };
 
